@@ -1,0 +1,316 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+}
+main {
+  padding-inline: 0.5%;
+  background-image: url(baggrund.webp);
+  background-repeat: repeat;
+  background-position: left bottom;
+}
+
+footer {
+  background-color: #f2eeb6;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+}
+
+h1,
+h2 {
+  font-family: "Abril Fatface", serif;
+}
+
+p {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+}
+
+/***** Hero img *****/
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Justér højden efter behov */
+  overflow: hidden;
+}
+
+.forsidepic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Sørger for, at billedet fylder containeren uden at strække sig */
+  padding-bottom: 5rem;
+}
+
+.forsidepic.active {
+  opacity: 1; /* Gør billedet synligt */
+}
+
+.lottie {
+  width: 620px;
+  height: 370px;
+  position: relative;
+  top: 33%;
+  left: 63%;
+}
+
+@media (max-width: 450px) {
+  .hero-container {
+    height: 55vh;
+  }
+
+  .lottie {
+    top: 33%;
+    left: 40%;
+  }
+}
+
+/**** Section1 ****/
+.section1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+  margin: 2rem 0;
+}
+
+.section1 .text_container {
+  background-color: #f2eeb6; /* Baggrundsfarve */
+  border: 3px solid #0d2673; /* Kantfarve */
+  border-radius: 15px; /* Runde hjørner */
+  padding: 20px; /* Indvendig afstand */
+}
+
+.section1 h1,
+.section1 h2,
+.section1 p {
+  margin: 0 0 1rem; /* Justerer margin for tekst */
+}
+
+.section1 img {
+  width: 100%; /* Billederne fylder hele grid-cellen */
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 500px; /* Giver en maks bredde */
+  overflow: hidden; /* Sikrer, at alt uden for billedområdet skjules */
+  border-radius: 8px; /* Matcher billedets hjørner */
+}
+
+.image-container img {
+  display: block;
+  width: 100%; /* Billedet fylder containerens bredde */
+  height: 100%; /* Bevarer proportionerne */
+  border-radius: 8px; /* Matcher containerens hjørner */
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-container:hover img {
+  transform: scale(1.05); /* Zoom ved hover */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Overlay fylder containerens bredde */
+  height: 100%; /* Overlay fylder containerens højde */
+  background-color: rgba(0, 0, 0, 0.6); /* Halvgennemsigtig sort */
+  color: #fff; /* Hvid tekst */
+  display: flex; /* Flexbox til centrering */
+  justify-content: center; /* Centrerer vandret */
+  align-items: center; /* Centrerer lodret */
+  font-size: 1.5rem; /* Tekststørrelse */
+  font-weight: bold; /* Fremhævet tekst */
+  text-align: center; /* Centrer tekstlinjer */
+  opacity: 0; /* Gør overlay usynligt som standard */
+  border-radius: 8px; /* Matcher billedets hjørner */
+  transition: opacity 0.3s ease-in-out; /* Glidende overgang til synlighed */
+}
+
+.image-container:hover .overlay {
+  opacity: 1; /* Gør overlay synligt ved hover */
+}
+
+@media (max-width: 450px) {
+  .section1 {
+    grid-template-columns: 1fr; /* Én kolonne */
+  }
+}
+
+/**** Section2 ****/
+.grid1_1 {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr); /* To kolonner på mobil */
+  padding-top: 1.5rem;
+  padding-bottom: 5rem;
+}
+.grid1_1 img {
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  border-radius: 8px;
+}
+
+@media (min-width: 769px) {
+  .grid1_1 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid1_1 img {
+    width: 100%;
+  }
+
+  .grid1_1 :nth-child(1) {
+    grid-row: 1/3;
+    aspect-ratio: 1/3;
+  }
+  .grid1_1 :nth-child(2) {
+    grid-column: 2/4;
+    aspect-ratio: 2/1;
+  }
+}
+
+/**** Videoer ****/
+.video {
+  width: 100%;
+}
+
+.iframe {
+  border: none;
+}
+
+.vid1,
+.vid2 {
+  aspect-ratio: 16 / 9; /* Bevar billedforholdet */
+  width: 100%; /* Skaler til skærmens bredde */
+  max-width: 600px; /* Begræns bredden til max 600px */
+  margin: 0 auto; /* Centrer elementerne */
+  border: none; /* Fjern iframe-rammer */
+  border-radius: 8px;
+  padding-top: 1.5rem;
+}
+
+/***** Menu *****/
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f2eeb6;
+  box-shadow: 0 10px 10px rgba(30, 18, 1, 0.1);
+  z-index: 1;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 4;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu li:last-child {
+  margin-right: 0;
+}
+
+.menu a {
+  display: block;
+  padding: 10px;
+  color: rgba(30, 18, 1);
+  text-decoration: none;
+  transition: color 0.3s;
+  text-align: end;
+}
+
+.menu a:hover {
+  color: white;
+}
+
+.burger {
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.burger .line {
+  width: 100%;
+  height: 2px;
+  background-color: #333333;
+  margin-bottom: 5px;
+  transition: 0.2s linear;
+}
+
+.burger {
+  display: none;
+}
+
+@media (max-width: 450px) {
+  .menu {
+    display: none;
+  }
+  .burger {
+    display: block;
+  }
+  .burger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    transition: 0.2s linear;
+  }
+
+  .burger.active .line:nth-child(2) {
+    opacity: 0;
+    transition: 0.15s linear;
+  }
+
+  .burger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    transition: 0.2s linear;
+  }
+
+  nav.active .menu {
+    display: block;
+    background-color: #f2eeb6;
+    position: absolute;
+    top: 73px;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+
+  nav.active .menu li {
+    margin: 10px 20px;
+  }
+
+  nav.active .menu a {
+    font-size: 24px;
+  }
+}
